@@ -1,8 +1,8 @@
 import { ContainerOptions } from "@libertymp/smooth-dnd";
 
 export interface DropResult {
-  startIndex: number | null;
-  endIndex: number | null;
+  from: number | null;
+  to: number | null;
   payload: any;
-  options: ContainerOptions;
+  origin: string;
 }
