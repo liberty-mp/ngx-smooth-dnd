@@ -1,6 +1,6 @@
 # @libertymp/ngx-smooth-dnd
 
-# Fork of [kutlugsahin/ngx-smooth-dnd](https://github.com/kutlugsahin/ngx-smooth-dnd)
+> Fork of [kutlugsahin/ngx-smooth-dnd](https://github.com/kutlugsahin/ngx-smooth-dnd)
 
 A fast and lightweight drag&drop, sortable library for Angular with many configuration options covering many d&d scenarios. It uses css transitions for animations so it's hardware accelerated whenever possible.
 
