@@ -41,7 +41,6 @@ export class AppModule { }
 
 ```ts
 import { Component } from '@angular/core';
-import { ContainerComponent, DraggableComponent } from '@libertymp/ngx-smooth-dnd';
 import { DropResult } from 'smooth-dnd';
 
 export const applyDrag = (arr: any, dragResult: any) => {
@@ -75,7 +74,7 @@ export const generateItems = (count: any, creator: any) => {
   template: `
     <div>
       <div class="simple-page">
-        <smooth-dnd-container (drop)="onDrop($event)">            
+        <smooth-dnd-container (drop)="onDrop($event)">
           <smooth-dnd-draggable *ngFor="let item of items">
             <div class="draggable-item">
               {{item.data}}
@@ -87,7 +86,7 @@ export const generateItems = (count: any, creator: any) => {
   `
 })
 export class AppComponent {
-  items = generateItems(50, i => ({ data: 'Draggable ' + i }))
+  items = generateItems(50, (i: number) => ({ data: 'Draggable ' + i }))
 
   onDrop(dropResult: DropResult) {
     // update item list according to the @dropResult
