@@ -23,6 +23,10 @@ export class DraggableComponent implements AfterViewInit, OnChanges {
   public constructor() {}
 
   public ngAfterViewInit() {
+    this.wrapper.nativeElement.parentNode.addEventListener('mouseover', () => {
+      this.onMouseOver();
+    });
+
     this.wrapper.nativeElement.parentNode.className = constants.wrapperClass;
 
     if(this.draggable) {
@@ -35,5 +39,11 @@ export class DraggableComponent implements AfterViewInit, OnChanges {
 
   public ngOnChanges(changes: SimpleChanges) {
     changes['draggable'].currentValue ? this.wrapper.nativeElement.parentNode.classList.remove('dndDraggableDisabled') : this.wrapper.nativeElement.parentNode.classList.add('dndDraggableDisabled');
+  }
+
+  public onMouseOver() {
+    const allHovered = document.querySelectorAll('.dnd-hovered');
+    allHovered.forEach((el) => el.classList.remove('dnd-hovered'));
+    this.wrapper.nativeElement.parentNode.classList.add('dnd-hovered');
   }
 }

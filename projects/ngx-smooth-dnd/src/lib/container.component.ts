@@ -142,7 +142,16 @@ export class ContainerComponent implements OnDestroy, AfterViewInit {
             return;
           }
 
-          this.drop.emit({ from: whereComeFrom, to: addedIndex, payload, origin });
+          let to = null;
+
+          for (let i = 0; i < this.containerElementRef.nativeElement.children.length; i++) {
+            if (this.containerElementRef.nativeElement.children[i].classList.contains('dnd-hovered')) {
+              to = i;
+              break;
+            }
+          }
+
+          this.drop.emit({ from: whereComeFrom, to, payload, origin });
         });
       }
     }
