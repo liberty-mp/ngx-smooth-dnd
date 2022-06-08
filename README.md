@@ -15,16 +15,25 @@ npm i @libertymp/ngx-smooth-dnd smooth-dnd
 
 ## Usage
 
-Add **NgxSmoothDnDModule** to your app module imports
+Add **NgxSmoothDndModule** to your app module imports
 ```ts
-import { NgxSmoothDnDModule } from '@libertymp/ngx-smooth-dnd';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { NgxSmoothDndModule } from '@libertymp/ngx-smooth-dnd';
+
+import { AppComponent } from './app.component';
 
 @NgModule({
-  imports: [
-    NgxSmoothDnDModule
+  declarations: [
+    AppComponent
   ],
+  imports: [
+    BrowserModule,
+    NgxSmoothDndModule
+  ],
+  providers: [],
   bootstrap: [AppComponent]
-  ...
 })
 export class AppModule { }
 
