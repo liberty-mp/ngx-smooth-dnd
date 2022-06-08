@@ -1,5 +1,5 @@
 import { Component, ContentChildren, QueryList, ViewChild, ElementRef, AfterViewInit, NgZone, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { dropHandlers, smoothDnD, DropResult, ContainerOptions,  SmoothDnD, SmoothDnDCreator, DragStartParams, DragEndParams } from 'smooth-dnd';
+import { dropHandlers, smoothDnD, DropResult, ContainerOptions,  SmoothDnD, SmoothDnDCreator, DragStartParams, DragEndParams } from '@libertymp/smooth-dnd';
 import { DraggableComponent } from './draggable.component';
 
 smoothDnD.dropHandler = dropHandlers.reactDropHandler().handler;

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { constants } from 'smooth-dnd';
+import { constants } from '@libertymp/smooth-dnd';
 
 @Component({
   selector: 'smooth-dnd-draggable',

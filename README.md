@@ -12,7 +12,7 @@ This library consists wrapper Angular components over <a href="https://github.co
 ### Installation
 
 ```shell
-npm i @libertymp/ngx-smooth-dnd smooth-dnd 
+npm i @libertymp/ngx-smooth-dnd @libertymp/smooth-dnd 
 ```
 
 ## Usage
@@ -43,7 +43,7 @@ export class AppModule { }
 
 ```ts
 import { Component } from '@angular/core';
-import { DropResult } from 'smooth-dnd';
+import { DropResult } from '@libertymp/smooth-dnd';
 
 export const applyDrag = (arr: any, dragResult: any) => {
 	const { removedIndex, addedIndex, payload } = dragResult;
