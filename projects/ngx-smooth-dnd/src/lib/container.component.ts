@@ -136,9 +136,9 @@ export class ContainerComponent implements OnDestroy, AfterViewInit {
 
     if (this.drop) {
       // @ts-ignore
-      options.onDrop = ({ whereComeFrom, addedIndex, payload }: DropResult) => {
+      options.onDrop = ({ whereComeFrom, addedIndex, payload, options }: DropResult) => {
         this.runNgZone(() => {
-          this.drop.emit({ startIndex: whereComeFrom, endIndex: addedIndex, payload });
+          this.drop.emit({ startIndex: whereComeFrom, endIndex: addedIndex, payload, options });
         });
       }
     }
