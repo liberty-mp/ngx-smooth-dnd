@@ -33,7 +33,7 @@ export const generateItems = (count: any, creator: any) => {
     <div>
       <div class="simple-page">
         <smooth-dnd-container (drop)="onDrop($event)" [behaviour]="'copy'" [dropPlaceholder]="true">
-          <smooth-dnd-draggable *ngFor="let item of items">
+          <smooth-dnd-draggable *ngFor="let item of items" [draggable]="item.canDrag">
             <div class="draggable-item">
               {{item.data}}
             </div>
@@ -44,7 +44,7 @@ export const generateItems = (count: any, creator: any) => {
   `
 })
 export class AppComponent {
-  items = generateItems(50, (i: number) => ({ data: 'Draggable ' + i }))
+  items = generateItems(50, (i: number) => ({ data: 'Draggable ' + i, canDrag: i % 2 === 0 }));
 
   onDrop(dropResult: DropResult) {
     // update item list according to the @dropResult

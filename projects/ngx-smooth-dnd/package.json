@@ -1,6 +1,6 @@
 {
   "name": "@libertymp/ngx-smooth-dnd",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Angular (13+) wrapper for smooth-dnd",
   "author": "@liberty-mp",
   "repository": {
@@ -15,7 +15,7 @@
   "peerDependencies": {
     "@angular/common": "^13.3.0",
     "@angular/core": "^13.3.0",
-    "@libertymp/smooth-dnd": "^0.12.4"
+    "@libertymp/smooth-dnd": "^0.12.7"
   },
   "dependencies": {
     "tslib": "^2.3.0"
