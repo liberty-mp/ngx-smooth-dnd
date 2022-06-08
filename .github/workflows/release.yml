@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: 16
           cache: npm
+          registry-url: https://registry.npmjs.org
 
       - name: Install Dependencies
         run: |
@@ -32,6 +33,9 @@ jobs:
 
       - name: Publish
         run: |
+          npm set registry "https://registry.npmjs.org"
+          npm set //registry.npmjs.org/:_authToken $NODE_AUTH_TOKEN
+
           for d in dist/*; do
             pushd $d
 
