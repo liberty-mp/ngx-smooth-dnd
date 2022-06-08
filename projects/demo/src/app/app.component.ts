@@ -33,7 +33,7 @@ export const generateItems = (count: any, creator: any) => {
     <div>
       <div [ngClass]="{'scale-75': scale}"  class="simple-page">
         <button (click)="toggleScale()">Scale</button>
-        <smooth-dnd-container [groupName]="'1'" (drop)="onDrop($event)" [behaviour]="'copy'">
+        <smooth-dnd-container [groupName]="'1'" (drop)="onDropOne($event)" [behaviour]="'copy'">
           <smooth-dnd-draggable *ngFor="let item of items" [draggable]="true">
             <div class="draggable-item">
               {{item.data}}
@@ -41,7 +41,7 @@ export const generateItems = (count: any, creator: any) => {
           </smooth-dnd-draggable>
         </smooth-dnd-container>
 
-        <smooth-dnd-container [groupName]="'2'" (drop)="onDrop($event)" [behaviour]="'copy'">
+        <smooth-dnd-container [groupName]="'2'" (drop)="onDropTwo($event)" [behaviour]="'copy'">
           <smooth-dnd-draggable *ngFor="let item of items" [draggable]="true">
             <div class="draggable-item">
               {{item.data}}
@@ -61,10 +61,19 @@ export class AppComponent {
     this.scale = !this.scale;
   }
 
-  onDrop(dropResult: DropResult) {
+  onDropOne(dropResult: DropResult) {
     // update item list according to the @dropResult
     // this.items = applyDrag(this.items, dropResult);
 
-    console.log(dropResult);
+    // @ts-ignore
+    console.log('onDropOne', dropResult);
+  }
+
+  onDropTwo(dropResult: DropResult) {
+    // update item list according to the @dropResult
+    // this.items = applyDrag(this.items, dropResult);
+    // @ts-ignore
+
+    console.log('onDropTwo', dropResult);
   }
 }
