@@ -31,9 +31,18 @@ export const generateItems = (count: any, creator: any) => {
   selector: 'app-root',
   template: `
     <div>
-      <div class="simple-page">
-        <smooth-dnd-container (drop)="onDrop($event)" [behaviour]="'copy'" [dropPlaceholder]="true">
-          <smooth-dnd-draggable *ngFor="let item of items" [draggable]="item.canDrag">
+      <div [ngClass]="{'scale-75': scale}"  class="simple-page">
+        <button (click)="toggleScale()">Scale</button>
+        <smooth-dnd-container [groupName]="'1'" (drop)="onDrop($event)" [behaviour]="'copy'">
+          <smooth-dnd-draggable *ngFor="let item of items" [draggable]="true">
+            <div class="draggable-item">
+              {{item.data}}
+            </div>
+          </smooth-dnd-draggable>
+        </smooth-dnd-container>
+
+        <smooth-dnd-container [groupName]="'2'" (drop)="onDrop($event)" [behaviour]="'copy'">
+          <smooth-dnd-draggable *ngFor="let item of items" [draggable]="true">
             <div class="draggable-item">
               {{item.data}}
             </div>
@@ -44,7 +53,13 @@ export const generateItems = (count: any, creator: any) => {
   `
 })
 export class AppComponent {
-  items = generateItems(50, (i: number) => ({ data: 'Draggable ' + i, canDrag: i % 2 === 0 }));
+  items = generateItems(50, (i: number) => ({ data: 'Draggable ' + i }))
+
+  scale = false;
+
+  public toggleScale() {
+    this.scale = !this.scale;
+  }
 
   onDrop(dropResult: DropResult) {
     // update item list according to the @dropResult
