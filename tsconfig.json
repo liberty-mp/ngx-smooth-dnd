@@ -11,6 +11,12 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "paths": {
+      "@libertymp/ngx-smooth-dnd": [
+        "dist/ngx-smooth-dnd/ngx-smooth-dnd",
+        "dist/ngx-smooth-dnd"
+      ]
+    },
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
