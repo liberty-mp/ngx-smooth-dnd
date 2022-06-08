@@ -1,6 +1,7 @@
 import { Component, ContentChildren, QueryList, ViewChild, ElementRef, AfterViewInit, NgZone, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { dropHandlers, smoothDnD, DropResult, ContainerOptions,  SmoothDnD, SmoothDnDCreator, DragStartParams, DragEndParams } from '@libertymp/smooth-dnd';
+import { dropHandlers, smoothDnD, ContainerOptions,  SmoothDnD, SmoothDnDCreator, DragStartParams, DragEndParams } from '@libertymp/smooth-dnd';
 import { DraggableComponent } from './draggable.component';
+import { DropResult } from './types';
 
 smoothDnD.dropHandler = dropHandlers.reactDropHandler().handler;
 smoothDnD.wrapChild = false;
@@ -39,7 +40,7 @@ export class ContainerComponent implements OnDestroy, AfterViewInit {
   @Output() dragStart = new EventEmitter<DragStartParams>();
   @Output() dragEnd = new EventEmitter<DragEndParams>();
   @Output() drop = new EventEmitter<DropResult>();
-  @Output() dropReady = new EventEmitter<DropResult>();
+  @Output() dropReady = new EventEmitter();
 
   @Input() getChildPayload: ContainerOptions['getChildPayload'];
   @Input() shouldAnimateDrop: ContainerOptions['shouldAnimateDrop'];
@@ -134,9 +135,10 @@ export class ContainerComponent implements OnDestroy, AfterViewInit {
     }
 
     if (this.drop) {
-      options.onDrop = (result: DropResult) => {
+      // @ts-ignore
+      options.onDrop = ({ whereComeFrom, addedIndex, payload }: DropResult) => {
         this.runNgZone(() => {
-          this.drop.emit(result);
+          this.drop.emit({ startIndex: whereComeFrom || null, endIndex: addedIndex, payload });
         });
       }
     }

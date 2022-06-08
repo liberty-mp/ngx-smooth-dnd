@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DropResult } from '@libertymp/smooth-dnd';
+import { DropResult } from '@libertymp/ngx-smooth-dnd';
 
 export const applyDrag = (arr: any, dragResult: any) => {
 	const { removedIndex, addedIndex, payload } = dragResult;
@@ -32,7 +32,7 @@ export const generateItems = (count: any, creator: any) => {
   template: `
     <div>
       <div class="simple-page">
-        <smooth-dnd-container (drop)="onDrop($event)" [behaviour]="'copy'">
+        <smooth-dnd-container (drop)="onDrop($event)" [behaviour]="'copy'" [dropPlaceholder]="true">
           <smooth-dnd-draggable *ngFor="let item of items">
             <div class="draggable-item">
               {{item.data}}
