@@ -55,8 +55,6 @@ export class ContainerComponent implements OnDestroy, AfterViewInit {
       smoothDnD.useTransformForGhost = this.useTransformForGhost;
     }
 
-    console.log(this.containerElementRef.nativeElement);
-
     this.container = smoothDnD(this.containerElementRef.nativeElement, this.getOptions());
   }
 

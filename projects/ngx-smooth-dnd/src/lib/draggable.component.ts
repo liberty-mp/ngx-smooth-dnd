@@ -4,9 +4,9 @@ import { constants } from 'smooth-dnd';
 @Component({
   selector: 'smooth-dnd-draggable',
   template: `
-    <div #draggableWrapper>
+    <ng-container #draggableWrapper>
       <ng-content></ng-content>
-    </div>
+    </ng-container>
   `,
 })
 export class DraggableComponent implements AfterViewInit {
