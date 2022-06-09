@@ -44,7 +44,7 @@ export class ContainerComponent implements OnDestroy, AfterViewInit {
 
   @Input() getChildPayload: ContainerOptions['getChildPayload'];
   @Input() shouldAnimateDrop: ContainerOptions['shouldAnimateDrop'];
-  @Input() shouldAcceptDrop: ContainerOptions['shouldAcceptDrop'];
+  @Input() shouldAcceptDrop: ContainerOptions['shouldAcceptDrop'] | boolean;
   @Input() getGhostParent: ContainerOptions['getGhostParent'];
 
   private container!: SmoothDnD;
@@ -188,8 +188,16 @@ export class ContainerComponent implements OnDestroy, AfterViewInit {
       options.shouldAnimateDrop = this.shouldAnimateDrop;
     }
 
-    if(this.shouldAcceptDrop) {
-      options.shouldAcceptDrop = this.shouldAcceptDrop;
+    if(this.shouldAcceptDrop !== undefined) {
+      let shouldAcceptDrop: boolean | ContainerOptions['shouldAcceptDrop'];
+
+      if(typeof this.shouldAcceptDrop === 'boolean') {
+        shouldAcceptDrop = () => this.shouldAcceptDrop as boolean;
+      } else {
+        shouldAcceptDrop = this.shouldAcceptDrop;
+      }
+
+      options.shouldAcceptDrop = shouldAcceptDrop;
     }
 
     if(this.getGhostParent) {
