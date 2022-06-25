@@ -133,5 +133,7 @@
       }
     }
   },
-  "defaultProject": "ngx-smooth-dnd"
+  "cli": {
+    "analytics": false
+  }
 }
