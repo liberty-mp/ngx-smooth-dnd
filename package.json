@@ -29,6 +29,7 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@libertymp/ngx-smooth-dnd": "^1.1.1",
     "@libertymp/smooth-dnd": "^0.13.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
