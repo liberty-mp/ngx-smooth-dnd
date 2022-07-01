@@ -1,6 +1,6 @@
 {
   "name": "@libertymp/ngx-smooth-dnd",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Angular (13+) wrapper for smooth-dnd",
   "author": "@liberty-mp",
   "repository": {
