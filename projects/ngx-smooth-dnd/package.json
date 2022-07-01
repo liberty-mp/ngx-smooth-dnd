@@ -13,9 +13,9 @@
   },
   "homepage": "https://github.com/liberty-mp/ngx-smooth-dnd",
   "peerDependencies": {
-    "@angular/common": "^14.0.3",
-    "@angular/core": "^14.0.3",
-    "@libertymp/smooth-dnd": "^0.12.7"
+    "@angular/common": ">=14.0.0 <15.0.0",
+    "@angular/core": ">=14.0.0 <15.0.0",
+    "@libertymp/smooth-dnd": "*"
   },
   "dependencies": {
     "tslib": "^2.3.0"
